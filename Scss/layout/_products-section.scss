@@ -1,0 +1,130 @@
+@use "../util" as u;
+
+.products-section {
+  position: relative;
+  margin: 0 u.rem(25) u.rem(180);
+  @include u.breakpoint(large) {
+    text-align: left;
+    margin: 0 u.rem(100) u.rem(80);
+  }
+  @include u.breakpoint(xlarge) {
+    margin: 0 u.rem(160) u.rem(80);
+  }
+
+  h2 {
+    text-align: center;
+    color: var(--black);
+    text-transform: uppercase;
+    font-size: u.rem(30);
+    margin-bottom: u.rem(30);
+    @include u.breakpoint(large) {
+      text-align: left;
+      line-height: 1.7;
+    }
+  }
+  button {
+    display: block;
+    background-color: var(--white);
+    text-transform: uppercase;
+    font-size: u.rem(15);
+    letter-spacing: u.rem(4);
+    border: 1px solid var(--black);
+    padding: u.rem(10) u.rem(40);
+    margin: 0 auto;
+    transition: ease-in-out 300ms;
+    @include u.breakpoint(large) {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    &:hover {
+      color: var(--white);
+      background-color: var(--black);
+      cursor: pointer;
+    }
+  }
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  gap: u.rem(20);
+  margin-bottom: u.rem(20);
+  @include u.breakpoint(medium) {
+    grid-template-columns: 2fr 2fr;
+    grid-template-rows: auto;
+    padding: u.rem(25) 0 0;
+  }
+  @include u.breakpoint(large) {
+    grid-template-columns: 3fr 3fr 3fr;
+  }
+  @include u.breakpoint(xlarge) {
+    grid-template-columns: 4fr 4fr 4fr 4fr;
+  }
+}
+
+.product {
+  position: relative;
+  .product-gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 6;
+    background-image: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.5) 50%,
+      rgba(252, 255, 255, 0) 80%
+    );
+    @include u.breakpoint(medium) {
+      background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(252, 255, 255, 0) 80%
+      );
+    }
+    &::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 300ms;
+      background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.836) 50%,
+        rgba(255, 255, 255, 0.836) 50%
+      );
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+  &:hover {
+    cursor: pointer;
+    .product-gradient-overlay::before {
+      opacity: 1;
+    }
+    .product-text-wrapper h3 {
+      transition: ease-in-out 300ms;
+      color: var(--black);
+    }
+  }
+}
+
+.product-text-wrapper {
+  position: absolute;
+  bottom: u.rem(20);
+  left: u.rem(20);
+  z-index: 3;
+  h3 {
+    color: var(--white);
+    text-transform: uppercase;
+    font-size: u.rem(22);
+  }
+}

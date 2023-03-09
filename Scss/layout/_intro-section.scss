@@ -1,0 +1,67 @@
+@use "../util" as u;
+
+.intro-section {
+  padding: 0 u.rem(25) u.rem(50);
+  text-align: center;
+  position: relative;
+  margin: u.rem(50) 0 0;
+  img {
+    margin-bottom: u.rem(30);
+  }
+  h2 {
+    color: var(--black);
+    text-transform: uppercase;
+    font-size: u.rem(30);
+  }
+  p {
+    padding: 0 u.rem(10);
+  }
+  @include u.breakpoint(large) {
+    margin: u.rem(100) u.rem(100) 0;
+    padding: 0;
+    .intro-section__img-wrapper {
+      width: 45vw;
+    }
+    .intro-section__text-wrapper {
+      background-color: var(--white);
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      max-width: 40%;
+      text-align: left;
+      padding: u.rem(20) 0 0 u.rem(40);
+      h2 {
+        font-size: u.rem(31);
+      }
+      p {
+        font-size: u.rem(16);
+        padding-top: u.rem(4);
+        line-height: 1.1;
+      }
+    }
+  }
+  @include u.breakpoint(xlarge) {
+    margin: u.rem(200) u.rem(160) 0;
+    padding: 0;
+    .intro-section__img-wrapper {
+      width: 50vw;
+    }
+    .intro-section__text-wrapper {
+      background-color: var(--white);
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      max-width: 45%;
+      text-align: left;
+      padding: u.rem(80) 0 0 u.rem(80);
+      h2 {
+        font-size: u.rem(40);
+      }
+      p {
+        font-size: u.rem(16);
+        padding-top: 20px;
+        line-height: 1.4;
+      }
+    }
+  }
+}

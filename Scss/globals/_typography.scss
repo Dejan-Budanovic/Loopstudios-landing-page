@@ -1,0 +1,32 @@
+/*font-family: 'Alata', sans-serif; links p buttons small, 
+font-family: 'Josefin Sans', sans-serif; headers main nav, 
+Font size: 15px*/
+@use "../util/" as u;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: u.$font-main;
+  font-weight: 300;
+  line-height: 1;
+  margin: 0;
+}
+
+p,
+button,
+small {
+  font-family: u.$font-second;
+}
+
+p {
+  font-size: 15px;
+}
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: var(--white);
+}

@@ -1,0 +1,27 @@
+@use "../util" as u;
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: u.$font-second;
+  background-color: var(--white);
+  color: var(--dark-gray);
+  scroll-behavior: smooth;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
